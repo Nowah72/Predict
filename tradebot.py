@@ -34,9 +34,9 @@ import warnings
 import statsmodels.api as sm
 import dash
 
-app = dash.Dash(__name__, suppress_callback_exceptions=True)
-server = app.server
-
+app = dash.Dash(__name__)
+server = app.server 
+PORT = int(os.environ.get('PORT', 8050))
 # Suppress specific warnings
 warnings.filterwarnings('ignore', category=UserWarning, module='statsmodels')
 warnings.filterwarnings('ignore', category=FutureWarning, module='statsmodels')
@@ -980,6 +980,7 @@ app.index_string = '''
 
 # Create a container for both layouts
 app.layout = html.Div([
+    html.H1("My Dash App")
     dcc.Location(id='url', refresh=False),
     html.Div(id='page-content')
 ])
@@ -1820,4 +1821,4 @@ def update_dashboard(fetch_n_clicks, lstm_n_clicks, lstm_advanced_n_clicks, arim
 
 
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    app.run_server(host='0.0.0.0', port=PORT)
