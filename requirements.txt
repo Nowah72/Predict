@@ -1,0 +1,14 @@
+dash
+plotly
+pandas
+yfinance
+TA-lib
+numpy
+statsmodels
+pmdarima
+flask
+tensorflow
+requests
+beautifulsoup4
+textblob
+scikit-learn
